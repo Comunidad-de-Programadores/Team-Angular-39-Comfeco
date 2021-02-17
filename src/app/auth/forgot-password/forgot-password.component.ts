@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,15 +11,28 @@ import { AuthService } from '../services/auth.service';
 })
 export class ForgotPasswordComponent   {
 
- 
-  userEmail = new FormControl('');
+  forgotForm = new FormGroup({
+    userEmail: new FormControl('', [Validators.required, Validators.email])
+   
+  });
+  
+  get userEmail(){return this.forgotForm.get('userEmail');}
   constructor(private authSvc: AuthService, private router: Router) { }
-
+  
   async onReset() {
+    const email = this.userEmail.value;
+    console.log(this.userEmail.value);
     try {
-      const email = this.userEmail.value;
+     
+     
       await this.authSvc.resetPassword(email);
-      window.alert('Se Ha enviado Un Email. Verifique su Bandeja de Entrada!');
+      Swal.fire({
+        title: 'Se Ha enviado Un Email. ',
+        text: "Verifique su Bandeja de Entrada!",
+        icon: 'info',
+        confirmButtonText: 'Ok!'
+      })
+      
       this.router.navigate(['/login']);
     } catch (error) {
       console.log(error);
