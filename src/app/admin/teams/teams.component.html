@@ -1,0 +1,47 @@
+<div class="root">
+  <div class="navbar has-background-dark">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="app-name has-gradient-text">kanban</h1>
+      </div>
+    </div>
+  </div>
+<div class="recalculating" *ngIf="reCalculating">
+  <h1>Recalculando...</h1>
+</div>
+  <div class="board">
+
+    <div class="board-bar">
+      <p class="board-name">{{ board.name }}</p>
+    </div>
+
+    <div class="board-wrapper">
+
+      <div class="board-columns" cdkDropListGroup>
+        <div class="board-column" *ngFor="let team of board.teams">
+
+          <div class="column-title">
+            {{ team.name }}
+          </div>
+
+          <div class="tasks-container" cdkDropListSortingDisabled cdkDropList  [cdkDropListData]="team.usersTeam" (cdkDropListDropped)="drop($event, team.teamId )">
+            <div class="task" *ngFor="let user of team.usersTeam" cdkDrag [cdkDragData]="user" >
+            
+            <div *ngIf="!user.isLider" >{{ user.level}} - {{user.userName}}</div>
+            <div *ngIf="user.isLider" style="color: seagreen;">{{ user.level}} - {{user.userName}}</div>
+           
+           
+            </div>
+            <div >
+              <app-level [users]=team.usersTeam></app-level>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

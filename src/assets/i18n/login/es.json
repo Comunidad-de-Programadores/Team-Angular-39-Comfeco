@@ -1,0 +1,20 @@
+{
+
+"loginForm":{
+"title": "titulo formulario",
+"name":"Nombre",
+"password":"Password",
+"placeholderEmail":"Ingrese nombre",
+"PlaceholderPassword": "Ingrese Password",
+"errorEmail":"Ingrese un Email Valido",
+"errorPassword": "Usuario o contraseña incorrectos"
+},
+"sendEmail":{
+"title": "titulo de page para enviar mail"
+},
+"forgotPassword":{
+  "title":"titulo de page para recuperar contraseña"
+
+}
+
+}

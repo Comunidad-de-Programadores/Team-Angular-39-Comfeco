@@ -1,0 +1,53 @@
+<section class="login-content">
+  <div class="login-content__main">
+    <div class="login-content__logo">
+      <img src="./../../../assets/images/logo.svg" alt="" srcset="">
+    </div>
+
+    <div class="login-content__titles">
+      <h2>Iniciar Sesion</h2>
+      <p>Ingresa los campos o ingresa con tus redes sociales</p>
+    </div>
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="error-login">
+        <p  *ngIf="messageError">{{messageError}}</p>
+      </div>
+      <div class="form__group">
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" placeholder="Ingresa tu usuario" />
+        <p class="form__error" *ngIf="email.invalid && (email.dirty || email.touched)">{{getErrorMessage()}}</p>
+      </div>
+      <div class="form__group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" placeholder="Ingrese contrasena"/>
+        <span class="form__error" *ngIf="password.invalid && (password.dirty || password.touched) ">
+          {{getPaswordErrorMessage()}}</span>
+      </div>
+
+
+      <button class="btn btn-primary w-100 " [disabled]="!loginForm.valid">
+        Login
+      </button>
+    </form>
+    <button (click)="onGoogleLogin()"  class="btn btn-danger w-100 mt-5" >
+      Google
+    </button>
+
+    <p class="register">
+      No tienes una cuenta ? <a [routerLink]="['/register']"> Registrate </a>
+    </p>
+
+    <!-- <div>
+      <p>
+        <a [routerLink]="['/forgot-password']"> Forgot password ? </a>
+      </p>
+    </div> -->
+
+  </div>
+
+  <div class="login-content__advertisements">
+
+
+  </div>
+</section>
