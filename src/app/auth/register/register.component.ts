@@ -43,25 +43,27 @@ passwordConfirmacion: ['', Validators.required]
         icon: 'info',
         confirmButtonText: 'Cool'
       })
+    }else{
+      this.authSvc.register(this.registerForm.value).then((user) => {
+        if (user && user.emailVerified) {
+          this.router.navigate(['/suscriptor']);
+        } else if (user) {
+          this.router.navigate(['/login/verificar-email']);
+        }
+
+      }, function (reason) {
+        console.log(reason);
+        Swal.fire({
+          title: 'Alerta!',
+          text: reason.message,
+          icon: 'warning',
+          confirmButtonText: 'Cool'
+        })
+      });
     }
-    this.authSvc.register(this.registerForm.value).then((user)=>{
-      if (user && user.emailVerified) {
-        this.router.navigate(['/suscriptor']);
-      } else if (user) {
-        this.router.navigate(['/login/verificar-email']);
-      }
+   
 
-    }, function(reason) {
-      console.log(reason);
-      Swal.fire({
-        title: 'Alerta!',
-        text: reason.message,
-        icon: 'warning',
-        confirmButtonText: 'Cool'
-      })
-    });
-
-    console.log(this.registerForm.value);
+   // console.log(this.registerForm.value);
   }
   getErrorMessage(campo:string):string {
 
