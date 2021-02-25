@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { user } from '@app/admin/models/user.model';
+import { user } from '@app/core/models/user.model';
 
 @Component({
   selector: 'app-level',

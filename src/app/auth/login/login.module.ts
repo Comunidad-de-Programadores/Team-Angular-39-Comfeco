@@ -7,13 +7,16 @@ import { SendEmailComponent } from '../send-email/send-email.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoliticaComponent } from './page/politica/politica.component';
 import { TerminosComponent } from './page/terminos/terminos.component';
+import { SharedModule } from '@app/shared/shared.module';
+
 
 @NgModule({
   declarations: [LoginComponent, SendEmailComponent, PoliticaComponent, TerminosComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class LoginModule { }

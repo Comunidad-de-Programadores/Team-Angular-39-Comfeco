@@ -27,8 +27,8 @@
           <div class="tasks-container" cdkDropListSortingDisabled cdkDropList  [cdkDropListData]="team.usersTeam" (cdkDropListDropped)="drop($event, team.teamId )">
             <div class="task" *ngFor="let user of team.usersTeam" cdkDrag [cdkDragData]="user" >
             
-            <div *ngIf="!user.isLider" >{{ user.level}} - {{user.userName}}</div>
-            <div *ngIf="user.isLider" style="color: seagreen;">{{ user.level}} - {{user.userName}}</div>
+            <div *ngIf="!user.isLider" >{{ user.level}} - {{user.name}}</div>
+            <div *ngIf="user.isLider" style="color: seagreen;">{{ user.level}} - {{user.name}}</div>
            
            
             </div>

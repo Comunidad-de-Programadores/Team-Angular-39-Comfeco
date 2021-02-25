@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
-import { AuthService } from '@auth/services/auth.service';
+import { AuthService } from '@app/core/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '@app/shared/models/user.interface';
 
@@ -17,12 +17,16 @@ export class LoginComponent  {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
+
 messageError:string;
+
   constructor(private authSvc: AuthService, private router: Router) {
 
    }
+
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
+
   async onGoogleLogin() {
     try {
       const user = await this.authSvc.loginGoogle();
@@ -52,9 +56,10 @@ messageError:string;
   sendMsj(msj:string):void{
     this.messageError = msj;
   }
+
   private checkUserIsVerified(user: User) {
     if (user && user.emailVerified) {
-      this.router.navigate(['/suscriptor']);
+      this.router.navigate(['/home']);
     } else if (user) {
       this.router.navigate(['/login/verificar-email']);
     } else {

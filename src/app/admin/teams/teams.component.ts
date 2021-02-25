@@ -1,9 +1,9 @@
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { TeamsPanel } from '@app/core/teamsPanelAdmin';
-import { Board } from '../models/board.model';
-import { Team } from '../models/team.model';
-import { user } from '../models/user.model';
+import { Board } from '../../core/models/board.model';
+import { Team } from '../../core/models/team.model';
+import { user } from '../../core/models/user.model';
 
 @Component({
   selector: 'app-teams',

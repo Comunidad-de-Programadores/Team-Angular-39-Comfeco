@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from "@angular/cdk/drag-drop";
-import { Board } from "@app/admin/models/board.model";
-import { user } from "@app/admin/models/user.model";
+import { Board } from "@app/core/models/board.model";
+import { user } from "@app/core/models/user.model";
 
 export class TeamsPanel{
 

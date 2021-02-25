@@ -1,7 +1,10 @@
+
+<app-nav></app-nav>
+
 <section class="login-content">
   <div class="login-content__main">
     <div class="login-content__logo">
-      <img src="./../../../assets/images/logo.svg" alt="Logo Comfeco" srcset="">
+      <img src="./../../../assets/images/logo.svg" alt="" srcset="">
     </div>
 
     <div class="login-content__titles">
@@ -26,11 +29,11 @@
       </div>
 
 
-      <button class="btn btn-primary w-100 " [disabled]="!loginForm.valid">
+      <button class="button-primary-lg" [disabled]="!loginForm.valid">
         Login
       </button>
     </form>
-    <button (click)="onGoogleLogin()"  class="btn btn-danger w-100 mt-1" >
+    <button class="button-light-lg"(click)="onGoogleLogin()">
       Google
     </button>
 
@@ -38,17 +41,19 @@
       No tienes una cuenta ? <a [routerLink]="['/register']"> Registrate </a>
     </p>
 
-    <div class="register">
-      <p>
-        <a [routerLink]="['/forgot-password']"> ¿Olvido su contraseña? </a>
-      </p>
-      <hr>
-      <p>
-        <a [routerLink]="['/login/terminos']"> Términos de Servicio  - </a>  <a [routerLink]="['/login/privacidad']"> Política de Privacidad </a>
-      </p>
-    </div>
+  <div class="register">
+    <p>
+      <a [routerLink]="['/forgot-password']"> ¿Olvido su contraseña? </a>
+    </p>
+
+    <p>
+      <a [routerLink]="['/login/terminos']"> Términos de Servicio - </a> <a [routerLink]="['/login/privacidad']"> Política
+        de Privacidad </a>
+    </p>
+  </div>
 
   </div>
+
 
   <div class="login-content__advertisements">
 

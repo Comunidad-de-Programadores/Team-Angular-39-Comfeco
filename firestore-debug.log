@@ -5,5 +5,7 @@ If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment
 
 Dev App Server is now running.
 
-Feb 17, 2021 1:41:43 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+Feb 25, 2021 12:49:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
+Feb 25, 2021 12:49:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.

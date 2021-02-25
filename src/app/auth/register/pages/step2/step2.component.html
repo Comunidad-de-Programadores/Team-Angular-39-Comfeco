@@ -1,1 +1,58 @@
-<p>step2 works!</p>
+<section class="login-content">
+  <div class="login-content__main">
+    <div class="login-content__logo">
+      <img src="./../../../assets/images/logo.svg" alt="" srcset="" />
+    </div>
+
+    <div class="login-content__titles">
+      <h2>Registrar</h2>
+    </div>
+
+    <form class="form" [formGroup]="formStep2" (ngSubmit)="onSave()">
+
+      <div class="form__group">
+        <label for="team">Seleccione un Team</label>
+       
+        <p class="form__error" *ngIf="team.invalid && (team.dirty || team.touched)">
+          {{ getErrorMessage("team") }}
+        </p>
+      </div>
+      <div class="form__group">
+        <label for="seniority">Seleccione un Seniority</label>
+     
+
+        <p class="form__error" *ngIf="seniority.invalid && (seniority.dirty || seniority.touched)">
+          {{ getErrorMessage("seniority") }}
+        </p>
+      </div>
+
+      <div class="form__group">
+        <label for="email">¿Trabajas Actualmente en el Area IT</label>
+        <input type="checkbox" formControlName="trabaja"  checked="false" />Si
+       
+
+        
+      </div>
+     
+     
+      <div class="form__group">
+        <label for="git">Link de su GitHub</label>
+        <input type="text" id="git" formControlName="git" placeholder="Ingresa tu GitHub" />
+       
+          <span class="form__error" *ngIf="git.invalid && (git.dirty || git.touched)">
+          {{ getErrorMessage("git") }}</span>
+      </div>
+
+      
+      <div>
+        <button type="submit" class="button-primary-lg" [disabled]="!formStep2.valid">Guardar</button>
+      </div>
+    </form>
+
+   
+
+
+  </div>
+
+  <div class="login-content__advertisements"></div>
+</section>

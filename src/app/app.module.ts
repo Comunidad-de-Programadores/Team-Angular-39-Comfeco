@@ -19,15 +19,17 @@ import { environment } from 'src/environments/environment';
 /**
  * Services
  */
-import { AuthService } from './auth/services/auth.service';
-import { NotificationService } from './services/notification.service';
+import { AuthService } from '@app/core/services/auth.service';
+import { NotificationService } from '@app/core/services/notification.service';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
-   
+    AppComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -37,8 +39,9 @@ import { NotificationService } from './services/notification.service';
     AngularFireStorageModule,
     AngularFireMessagingModule,
     ReactiveFormsModule
-    
+
   ],
+
   providers: [AuthService,NotificationService],
   bootstrap: [AppComponent]
 })
