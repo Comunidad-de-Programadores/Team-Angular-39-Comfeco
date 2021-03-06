@@ -6,30 +6,35 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item " [ngClass]="{'active': item.active }" *ngFor="let item of config.items ; let i = index" >
+        <li class="nav-item" [ngClass]="{'active': item.active }" *ngFor="let item of config.items ; let i = index" >
           <a class="nav-link" href="#" [routerLink]="[item.link]">{{item.name}}
             <span class="sr-only">(current)</span>
           </a>
         </li>
-
       </ul>
-
-
     </div>
   </div>
-<div class="userMenu">
-<div *ngIf="userNav" class="user">
-  <img src="{{user.photoURL}}" alt="">
-  <p>{{user.displayName}}</p>
-</div>
+  <div class="userMenu">
+    <div (click)="showMenu=!showMenu" *ngIf="userNav" class="user">
+      <img src="{{user.photoURL}}" alt="">
+      <p>{{user.displayName}}</p>
+      <div  class="but"></div>
+    </div>
+  </div>
 
-
-
-</div>
-<div *ngIf="userNav" class="notify">
-  <img src="./../../../../assets/images/iconos/notify.png" width="25" height="25" />
-
-</div>
+  <div *ngIf="userNav" class="notify">
+    <img src="./../../../../assets/images/iconos/notify.png" width="25" height="25" />
+  </div>
 </nav>
 
+
+  <div *ngIf="showMenu">
+    <div class="menuHide">
+      <ul>
+        <li class="ml-4 mt-3"><a [routerLink]="['/perfil']">Perfil</a></li>
+        <li><hr></li>
+        <li class="ml-4" (click)="logOut()"><a href="">Logout</a></li>
+      </ul>
+    </div>
+  </div>
 

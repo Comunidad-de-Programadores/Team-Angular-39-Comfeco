@@ -30,3 +30,30 @@ input{
     outline: none;
 }
 
+.bg-strongDark{
+    background-color: #242828;
+}
+
+.bg-semiStrongDark{
+    background-color: #2d3434;
+}
+
+.bg-semilightDark{
+  background-color: #384040;
+}
+
+.bg-lightDark {
+  background-color: #424c4c;
+}
+
+.img-40-rouned{
+    max-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.img-150-rounded{
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

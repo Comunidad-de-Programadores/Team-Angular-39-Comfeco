@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { User } from '@app/shared/models/user.interface';
+
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,10 @@ import { User } from '@app/shared/models/user.interface';
 export class NavComponent implements OnInit,OnChanges {
   @Input() config:any;
   @Input() user:User;
+  @Output() logout= new EventEmitter<boolean>();
+
   userNav:User;
+  showMenu:boolean;
   constructor() {
 
 
@@ -23,5 +27,9 @@ export class NavComponent implements OnInit,OnChanges {
     console.log( this.config);
 
   }
+logOut(){
+this.showMenu=false;
+this.logout.emit(true);
+}
 
 }

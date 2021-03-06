@@ -1,7 +1,7 @@
 .userMenu{
 position: absolute;
 top: 8px;
-right: 10px;
+right: 25px;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -32,7 +32,78 @@ color:gray;
 .notify{
 position: absolute;
 top: 5px;
-right: 20px;
+right: 30px;
 z-index: 1000;
+
+}
+.but{
+display: block;
+position: relative;
+top:-16px;
+border-top: 7px solid grey;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 7px solid transparent;
+
+
+}
+.container{
+margin: 5px;
+}
+
+.menuHide{
+background-color: white;
+position: absolute;
+top:77px;
+width: 150px;
+right: 5px;
+border-radius: 5px;
+box-shadow: 1px 2px 10px 2px rgba(0,0,0,0.17);
+z-index: 10000;
+animation-name: load;
+animation-duration: 400ms;
+}
+.menuHide li{
+list-style: none;
+color: grey;
+z-index: 100000;
+
+}
+
+@media(max-width:768px){
+.userMenu{
+position: absolute;
+top: 8px;
+right: 15px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+}
+.notify{
+position: absolute;
+top: 5px;
+right: 20px;
+
+
+}
+.navbar-toggler{
+
+position: absolute;
+top: 5px;
+left: 3px;
+
+}
+.navbar-brand{
+margin-left: 50px;
+
+}
+
+}
+
+@keyframes load{
+0%{opacity: 0;}
+99%{opacity: 1;}
 
 }

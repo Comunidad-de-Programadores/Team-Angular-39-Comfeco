@@ -3,12 +3,8 @@
 
 <section class="login-content">
   <div class="login-content__main">
-    <div class="login-content__logo">
-      <img src="./../../../assets/images/logo.svg" alt="" srcset="">
-    </div>
-
     <div class="login-content__titles">
-      <h2>Iniciar Sesion</h2>
+      <h2 class="mt-5">Iniciar Sesion</h2>
       <p>Ingresa los campos o ingresa con tus redes sociales</p>
     </div>
 
@@ -29,11 +25,11 @@
       </div>
 
 
-      <button class="button-primary-lg" [disabled]="!loginForm.valid">
+      <button class="button-primary-lg w-100" [disabled]="!loginForm.valid">
         Login
       </button>
     </form>
-    <button class="button-light-lg"(click)="onGoogleLogin()">
+    <button class="button-light-lg w-100"(click)="onGoogleLogin()">
       Google
     </button>
 

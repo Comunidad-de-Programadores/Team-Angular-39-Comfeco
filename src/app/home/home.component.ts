@@ -25,4 +25,10 @@ if(resp){
 })
   }
 
+logOut(){
+this.authSvc.logout();
+  this.configNav = { user: { name: true, nick: true, notification: true }, items: [{ name: 'Home', link: '/home', active: true }, { name: 'Inscribite Aqui!', link: '/register' }, { name: 'Login', link: '/login' }] };
+
+}
+
 }

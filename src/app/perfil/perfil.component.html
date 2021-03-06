@@ -1,0 +1,98 @@
+<app-nav [config]="configNav" [user]="user" (logout)="logOut()"></app-nav>
+<div class="container-fluid ">
+  <div [ngClass]="classSubMenu" class="row bg-violet d-flex justify-content-center mt-5"
+    style="margin-top: 6%; margin-bottom: 0%; padding-bottom: 0%;">
+    <div class="col-lg-9 col-md-12 text-center py-4 mt-3" style="margin-bottom: 0%; ">
+      <div class="row  d-flex justify-content-center align-bottom">
+        <div class="col-md-3  col-sm-12 text-center ">
+          <button type="button" class="btn btn-lg btn-primary w-100" (click)="view('insignias')"><i
+              class="fas fa-user pr-1"></i>Mi perfil</button>
+        </div>
+        <div class="col-md-3 col-sm-12   text-center ">
+          <button type="button" class="btn btn-secondary btn-lg w-100" (click)="view('insignias')"><i
+              class="fas fa-medal pr-2"></i>Insignias</button>
+        </div>
+        <div class="col-md-3 col-sm-12   text-center ">
+          <button type="button" class="btn btn-secondary btn-lg w-100 " (click)="view('grupos')"><i
+              class="fas fa-users pr-2"></i>Grupos</button>
+        </div>
+        <div class="col-md-3 col-sm-12   text-center ">
+          <button type="button" class="btn btn-secondary btn-lg w-100 " (click)="view('eventos')"><i
+              class="fas fa-calendar-check pr-2"></i>Eventos</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="editProfile" class="col-lg-3">
+      <div class="list-group mt-5 list-group-flush">
+        <div class="card w-100">
+          <div class="container">
+            <div class="row">
+              <div  class="col-12 text-right pt-4">
+                <button class="buttonProfile" (click)="view('profile')">
+                  <h6>Editar perfil</h6>
+                </button>
+              </div>
+            </div>
+          </div>
+          <img
+            src="{{user.photoURL}}"
+            class="mx-auto img-150-rounded" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{user.displayName}}</h5>
+            <p class="card-text user-skill">Frontend Developer / UI/UX</p>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus consectetur
+              maiores esse accusamus quae perspiciatis?</p>
+          </div>
+          <hr class="mt-1">
+          <div class="img d-flex justify-content-around mb-2">
+            <img
+              src="https://as.com/tikitakas/imagenes/2018/11/01/portada/1541090901_594075_1541091249_noticia_normal.jpg"
+              class="img-40-rouned mx-auto" alt="img1">
+            <img
+              src="https://as.com/tikitakas/imagenes/2018/11/01/portada/1541090901_594075_1541091249_noticia_normal.jpg"
+              class="img-40-rouned mx-auto" alt="img2">
+            <img
+              src="https://as.com/tikitakas/imagenes/2018/11/01/portada/1541090901_594075_1541091249_noticia_normal.jpg"
+              class="img-40-rouned mx-auto" alt="img3">
+            <img
+              src="https://as.com/tikitakas/imagenes/2018/11/01/portada/1541090901_594075_1541091249_noticia_normal.jpg"
+              class="img-40-rouned mx-auto" alt="img4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-6">
+      <app-view [user]="user" [section]="seccionActual"></app-view>
+    </div>
+    <!-- /.col-lg-6 -->
+
+    <div class="col-lg-3">
+      <div class="list-group mt-5">
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-8">
+              Eventos de tu interes
+            </div>
+            <div class="col-4 text-right">
+              <span><a [routerLink]="['/home/comunidades']" style="font-size: 12px;">Ver más</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="list-group-item" style="height:515px; overflow: scroll;">
+          <app-card-events></app-card-events>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+  </div>
+  <!-- /.row -->
+
+
+
+</div>
+<app-footer>© 2021 GitHub, Inc.</app-footer>
