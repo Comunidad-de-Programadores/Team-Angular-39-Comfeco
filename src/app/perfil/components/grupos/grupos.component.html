@@ -1,0 +1,26 @@
+<div class="cards">
+
+  <div class="card" *ngFor="let item of grupos.grupos; index as i">
+
+<div *ngFor="let member of item.members">
+
+<img *ngIf="member.uid==user.uid" src="../../../../assets/images/grupos/cards/{{item.imagen}}Active.png" width="200" height="200" />
+  
+
+</div>
+<img id="image{{i}}" src="../../../../assets/images/grupos/cards/{{item.imagen}}.png" width="200" height="200" />
+
+    <p class="desc">{{item.lenguage}}</p>
+    <p class="tipo title-3 ">{{item.nombre}}</p>
+    <p class="desc">{{item.descripcion}}</p>
+
+
+<div *ngFor="let member of item.members">
+
+  <p *ngIf="member.uid==user.uid"><button class="button-primary-xs" style="background-color: grey;" (click)="joinGroup(item)">Unido</button></p>
+
+</div>
+<button id="button{{i}}" class="button-primary-xs" (click)="joinGroup(item)">Unirse</button>
+    
+</div>
+</div>

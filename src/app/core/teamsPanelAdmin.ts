@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from "@angular/cdk/drag-drop";
 import { Board } from "@app/core/models/board.model";
-import { user } from "@app/core/models/user.model";
+import { User } from "@app/core/models/user.model";
 
 export class TeamsPanel{
 
@@ -13,7 +13,7 @@ constructor() {
  
 
 }
-  drop(event: CdkDragDrop<user[]>, teamId: string) {
+  drop(event: CdkDragDrop<User[]>, teamId: string) {
     //console.log(event.previousContainer);
    // console.log(event.container);
     //console.log(event.item.data);
@@ -23,9 +23,9 @@ constructor() {
      * origen y equipo destino
      */
     const position = this.board.teams.findIndex(team => team.teamId === teamId);
-    const toTeam: user[] = event.container.data;
-    const fromTeam: user[] = event.previousContainer.data;
-    const userToTeam: user = event.item.data;
+    const toTeam: User[] = event.container.data;
+    const fromTeam: User[] = event.previousContainer.data;
+    const userToTeam:User = event.item.data;
     /**
      * Solo usamos el else que es cuando se cambia de team el user.
      * 
