@@ -1,0 +1,85 @@
+.login-content{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 380px 3fr;
+  position: relative;
+}
+
+.login-content__main{
+  padding: 40px;
+}
+
+.login-content__advertisements{
+  background-color: var(--color-primary-violet);
+  background-image: url("/assets/images/bgReLo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.login-content__titles{
+  margin: 30px 0 15px 0;
+}
+
+.login-content__titles h2{
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #2D245F;
+}
+
+.login-content__titles p{
+  margin-top: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #AAA9B1;
+  max-width: 190px;
+}
+
+.register{
+
+  text-align: center;
+  font-weight: 500;
+  font-size: .8rem;
+  line-height: 13px;
+
+  color: grey;
+  margin: 15px 0;
+}
+.error-login{
+
+color: red;
+font-size: .8rem;
+margin: 10px 0;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .login-content{
+      grid-template-columns: 100vw;
+      justify-content: center;
+
+  }
+
+  .login-content__main{
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+
+
+  }
+  .login-content__advertisements{
+      display: none;
+  }
+
+  .login-content__main{
+      padding: 40px;
+  }
+}

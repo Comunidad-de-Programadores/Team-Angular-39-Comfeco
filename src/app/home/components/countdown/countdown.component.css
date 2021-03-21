@@ -1,0 +1,25 @@
+.countdown-container {
+    padding: 20px;
+    background-color: #222222;
+    margin-bottom: 20px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    opacity: 0.5;
+}
+ 
+.countdown-container .number {
+    font-size: 32px;
+    text-align: center;
+    padding-top: 20px;
+    color: #FFFFFF;
+    background-color: #58565600;
+    height: 90px;
+   
+}
+ 
+.countdown-container .concept {
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+}

@@ -1,0 +1,19 @@
+
+
+<swiper
+[slidesPerView]="5"
+[spaceBetween]="50"
+(swiper)="onSwiper($event)"
+(slideChange)="onSlideChange()"
+[navigation]="{}"
+
+  class="mt-2 mb-5"
+>
+  <ng-template swiperSlide *ngFor="slide of insignias; index as i" class="text-centar">
+    
+  <img *ngIf="insignias[i].isActive"src="./../../../../assets/images/insignias/{{insignias[i].image}}Active.png" style="border-radius: 50%; width: 100px;" alt="...">
+  <img *ngIf="!insignias[i].isActive" src="./../../../../assets/images/insignias/{{insignias[i].image}}.png"
+    style="border-radius: 50%; width: 100px;" alt="...">
+  </ng-template>
+
+</swiper>

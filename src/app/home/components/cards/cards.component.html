@@ -1,0 +1,40 @@
+<swiper
+    [slidesPerView]="3"
+    [spaceBetween]="50"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange()"
+    [autoplay]="{delay: 2500,disableOnInteraction: false}"
+    [pagination]="{ clickable: true }"
+   
+      class="mt-5"
+    >
+      <ng-template swiperSlide *ngFor="slide of slides; index as i">
+        <div class="card"  >
+          <img src="{{teams[i].image}}" class="card-img-top"   alt="...">
+
+          <div *ngIf="teams[i].team=='Angular'" class="card-body m-0 p-1 " style="background-color: rgba(250, 12, 52, 0.952);" >
+            <p class="text-white"> {{teams[i].name}} </p>
+            <p class="text-center" > <strong>{{teams[i].team}}</strong> </p>
+          </div>
+
+          <div *ngIf="teams[i].team=='Svelte'" class="card-body m-0 p-1 " style="background-color: rgba(245, 172, 63, 0.952);">
+            <p class="text-white"> {{teams[i].name}} </p>
+            <p class="text-center"> <strong>{{teams[i].team}}</strong> </p>
+            </div>
+
+        <div *ngIf="teams[i].team=='React'" class="card-body m-0 p-1 " style="background-color: rgba(44, 216, 247, 0.952);">
+          <p class="text-white"> {{teams[i].name}} </p>
+          <p class="text-center"> <strong>{{teams[i].team}}</strong> </p>
+        </div>
+
+        <div *ngIf="teams[i].team=='Vue'" class="card-body m-0 p-1 " style="background-color: rgba(20, 184, 69, 0.952);">
+          <p class="text-white"> {{teams[i].name}} </p>
+          <p class="text-center"> <strong>{{teams[i].team}}</strong> </p>
+        </div>
+
+
+        </div>
+      </ng-template>
+
+    </swiper>
+

@@ -1,0 +1,19 @@
+.icono-user{
+  border-radius: 10px;
+  width: 50px;
+  padding: 0%;
+  margin: 0%;
+}
+.card-link{
+  font-size: 12px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.user-skill{
+  color:gray;
+  font-size: 0.8rem;
+}
+.buttonProfile{
+background-color: white;
+}

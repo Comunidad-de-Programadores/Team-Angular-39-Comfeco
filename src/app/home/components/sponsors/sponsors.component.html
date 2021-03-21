@@ -1,0 +1,18 @@
+
+
+<swiper
+[slidesPerView]="5"
+[spaceBetween]="50"
+(swiper)="onSwiper($event)"
+(slideChange)="onSlideChange()"
+[navigation]="{}"
+      [pagination]="{ clickable: true }"
+
+  class="mt-5"
+>
+  <ng-template swiperSlide *ngFor="slide of sponsors; index as i" class="text-centar">
+    <img src="./../../../../assets/images/sponsors/{{i}}.jpg" style="border-radius: 50%; width: 70px;" alt="...">
+  </ng-template>
+
+</swiper>
+

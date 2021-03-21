@@ -1,0 +1,40 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form__group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-weight: 500;
+    font-size: .8rem;
+    line-height: 14px;
+
+    color: var(--color-placelholder);
+  }
+
+.form__group label{
+    color: var(-color-blue-black);
+    font-weight: 900;
+    font-size: .8rem;
+    line-height: 14px;
+}
+.form__group input{
+    background: #FFFFFF;
+    border: 2px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: .8rem;
+    line-height: 14px;
+    color: var(-color-blue-black);
+}
+.form__error{
+    color: red;
+    font-size: 0.7rem;
+}

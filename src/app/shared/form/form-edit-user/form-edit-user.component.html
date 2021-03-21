@@ -1,0 +1,134 @@
+<div class="row d-flex justify-content-center  ">
+  <form class="col-lg-8 col-sm-11 col-md-10 text-center" [formGroup]="formEditUser" (ngSubmit)="actualizar()">
+
+    <div class="row">
+      <div class="col-12 text-center " *ngIf="user.photoURL">
+        <img src="{{user.photoURL}}" alt="photoURL" style="border-radius: 50%;"><br>
+        <h2>{{user.displayName}}</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+        <hr>
+        <h4>Datos Generales</h4>
+        <hr>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="nick">Nick Name</label>
+        <input type="text"  class="form-control" formControlName="nickName" placeholder="Ingresa tu Nick Name" />
+        <p class="form__error" *ngIf="nickName.invalid && (nickName.dirty || nickName.touched)">
+          {{ getErrorMessage("nickName") }}
+        </p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Ingresa tu email" />
+        <p class="form__error" *ngIf="email.invalid && (email.dirty || email.touched)">
+          {{ getErrorMessage("email") }}
+        </p>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="genero">Género</label>
+        <input type="genero"  class="form-control" formControlName="genero" placeholder="" />
+        <p class="form__error" *ngIf="genero.invalid && (genero.dirty || genero.touched)">
+          {{ getErrorMessage("genero") }}
+        </p>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="FchNacimiento">Fecha de nacimiento</label>
+        <input type="date" class="form-control" formControlName="FchNacimiento" placeholder="" />
+        <p class="form__error" *ngIf="FchNacimiento.invalid && (FchNacimiento.dirty || FchNacimiento.touched)">
+          {{ getErrorMessage("FchNacimiento") }}
+        </p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="pais">País</label>
+        <input type="text" class="form-control" formControlName="pais" placeholder="Ingresa tu país" />
+        <p class="form__error" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
+          {{ getErrorMessage("pais") }}
+        </p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="areaConocimiento">área de conocimiento</label>
+        <select class="custom-select" id="areaConocimiento" formControlName="areaConocimiento">
+          <option selected value="">Seleccione</option>
+          <option value="frontend">frontend</option>
+          <option value="backend">backend</option>
+          <option value="VideoGameDevelopers">Video Game Developers</option>
+          <option value="UI/UX">UI/UX</option>
+          <option value="DatabaseDeveloper">Database Developer</option>
+          <option value="CloudComputing">Cloud Computing</option>
+        </select>
+        <p class="form__error" *ngIf="areaConocimiento.invalid && (areaConocimiento.dirty || areaConocimiento.touched)">
+          {{ getErrorMessage("areaConocimiento") }}
+        </p>
+      </div>
+      <div class="col-12">
+        <hr>
+        <h4>Credenciales</h4>
+        <hr>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="password">password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="" />
+        <p class="form__error" *ngIf="password.invalid && (password.dirty || password.touched)">
+          {{ getErrorMessage("password") }}
+        </p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="confirmPassword" placeholder="" />
+        <p class="form__error" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+          {{ getErrorMessage("confirmPassword") }}
+        </p>
+      </div>
+      <div class="col-12">
+        <hr>
+        <h4>Redes Sociales</h4>
+        <hr>
+      </div>
+      <div class="input-group col-md-6 mt-3">
+        <div class="input-group-prepend link" (click)="abrirRedSocial('https://facebook.com/','facebook')">
+          <span class="input-group-text" id="basic-addon3">https://facebook.com/</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" formControlName="facebook"
+          aria-describedby="basic-addon3">
+      </div>
+
+      <div class="input-group col-md-6 mt-3">
+        <div class="input-group-prepend link " (click)="abrirRedSocial('https://github.com/','github')">
+          <span class="input-group-text" id="github">https://github.com/</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" formControlName="github" aria-describedby="github">
+      </div>
+
+      <div class="input-group col-md-6 mt-3">
+        <div class="input-group-prepend link" (click)="abrirRedSocial('https://linkedin.com/in/','linkedin')">
+          <span class="input-group-text" id="linkedin">https://linkedin.com/in/</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" formControlName="linkedin" aria-describedby="linkedin">
+      </div>
+
+      <div class="input-group col-md-6 mt-3">
+        <div class="input-group-prepend link" (click)="abrirRedSocial('https://twitter.com/','twitter')">
+          <span class="input-group-text" id="twitter">https://twitter.com/</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" formControlName="twitter" aria-describedby="twitter">
+      </div>
+      <div class="col-12">
+        <hr>
+        <h4>Biografia</h4>
+        <hr>
+      </div>
+      <div class="form-group col-12">
+        <textarea name="biografia" id="biografia" class="form-control" formControlName="biografia" rows="10"
+          class="w-100"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-50 mb-5" [disabled]="!formEditUser.valid">Actualizar</button>
+  </form>
+</div>
+
