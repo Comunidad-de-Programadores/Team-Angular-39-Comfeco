@@ -1,11 +1,11 @@
-import { user } from "./user.model";
+import { User } from "./user.model";
 
 export class Team {
   teamId?:string;
   name:string;
   complete?:boolean;
   teamCount?:number;
-  usersTeam?:user[];
+  usersTeam?:User[];
   tokenArray?:string[];
   discordChannel?:boolean;
   notify?:boolean;

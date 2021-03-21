@@ -5,7 +5,7 @@
     <div class="col-lg-9 col-md-12 text-center py-4 mt-3" style="margin-bottom: 0%; ">
       <div class="row  d-flex justify-content-center align-bottom">
         <div class="col-md-3  col-sm-12 text-center ">
-          <button type="button" class="btn btn-lg btn-primary w-100" (click)="view('insignias')"><i
+          <button type="button" class="btn btn-lg btn-primary w-100" (click)="view('perfil')"><i
               class="fas fa-user pr-1"></i>Mi perfil</button>
         </div>
         <div class="col-md-3 col-sm-12   text-center ">
@@ -67,8 +67,10 @@
     </div>
     <!-- /.col-lg-3 -->
     <div class="col-lg-6">
+
       <app-view [user]="user" [section]="seccionActual"></app-view>
     </div>
+
     <!-- /.col-lg-6 -->
 
     <div class="col-lg-3">
@@ -94,5 +96,5 @@
 
 
 
-</div>
+
 <app-footer>© 2021 GitHub, Inc.</app-footer>

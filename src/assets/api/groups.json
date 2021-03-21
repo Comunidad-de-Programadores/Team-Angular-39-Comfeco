@@ -1,0 +1,116 @@
+{
+"grupos":[
+{
+"nombre":"nombre",
+"imagen":"detective",
+"lenguage":"typescript",
+"descripcion":"descripcion aca",
+"members":[
+{
+"uid":"21321654654654",
+"image":"detective"
+},
+{
+  "uid": "213216gdsfg54654654",
+  "image": "detective"
+},
+{
+  "uid": "21321sdfg654654654",
+  "image": "detective"
+},
+{
+  "uid": "21asdf654654",
+  "image": "detective"
+}
+
+]
+},
+{
+  "nombre": "nombre",
+  "imagen": "detective",
+  "lenguage": "typescript",
+  "descripcion": "descripcion aca",
+  "members": [
+    {
+      "uid": "21321654654654",
+      "image": "detective"
+    },
+    {
+      "uid": "213216gdsfg54654654",
+      "image": "detective"
+    },
+    {
+      "uid": "21321sdfg654654654",
+      "image": "detective"
+    },
+    {
+      "uid": "21asdf654654",
+      "image": "detective"
+    }
+  ]
+},
+{
+  "nombre": "grupo 3",
+  "imagen": "detective",
+  "lenguage": "typescript",
+  "descripcion": "descripcion aca",
+  "members": [
+    {
+      "uid": "21321654654654",
+      "image": "detective"
+    },
+    {
+      "uid": "213216gdsfg54654654",
+      "image": "detective"
+    },
+    {
+      "uid": "1eFxx4LULISnzhlnTHPxXNhUwdc2",
+      "image": "detective"
+    },
+    {
+      "uid": "21asdf654654",
+      "image": "detective"
+    }
+  ]
+},
+{
+  "nombre": "nombre",
+  "imagen": "detective",
+  "lenguage": "typescript",
+  "descripcion": "descripcion aca",
+  "members": [
+    {
+      "uid": "21321654654654",
+      "image": "detective"
+    },
+    {
+      "uid": "213216gdsfg54654654",
+      "image": "detective"
+    },
+    {
+      "uid": "21321sdfg654654654",
+      "image": "detective"
+    },
+    {
+      "uid": "21asdf654654",
+      "image": "detective"
+    }
+  ]
+}
+
+
+
+
+
+
+]
+
+
+
+
+
+
+
+
+
+}

@@ -11,7 +11,7 @@ export class PerfilComponent implements OnInit {
   configNav;
   user: User;
   classSubMenu="bg-strongDark";
-  seccionActual:string="insignias";
+  seccionActual:string="perfil";
   constructor(private authSvc: AuthService) { 
 this.configNav = { user: { name: true, nick: true, notification: true }, items: [{ name: 'Home', link: '/home', active: true }, { name: 'Inscribite Aqui!', link: '/register' }, { name: 'Login', link: '/login' }] };
 

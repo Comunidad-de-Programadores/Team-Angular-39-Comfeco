@@ -7,14 +7,20 @@ import { FooterComponent } from '@app/shared/components-global/footer/footer.com
 import { NavComponent } from '@app/shared/components-global/nav/nav.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { ViewComponent } from './components/view/view.component';
+import { InsigniaComponent } from './components/insignia/insignia.component';
+import { GruposComponent } from './components/grupos/grupos.component';
+import { GroupService } from '@app/core/services/group.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [PerfilComponent, ViewComponent],
+  declarations: [PerfilComponent, ViewComponent, InsigniaComponent, GruposComponent],
   imports: [
     CommonModule,
     PerfilRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    HttpClientModule
+  ],
+providers:[GroupService]
 })
 export class PerfilModule { }

@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Insignias } from '@app/core/models/insignias.model';
 import { AuthService } from '@app/core/services/auth.service';
+import { SkillService } from '@app/core/services/skill.service';
 import { User } from '@app/shared/models/user.interface';
 import Swal from 'sweetalert2';
 
@@ -14,9 +16,19 @@ export class ViewComponent implements OnInit {
 @Input() section:string;
 @Input() user: User;
   registerForm: FormGroup;
- 
+ insignias: Insignias[];
 
-  constructor(private authSvc: AuthService, private router: Router, private fb: FormBuilder) {
+  constructor(private authSvc: AuthService, 
+            private router: Router, 
+            private fb: FormBuilder,
+            private ss:SkillService) {
+
+this.ss.insignias$.subscribe(resp=>{
+
+this.insignias=resp;
+
+  })
+    
 
     this.registerForm = this.fb.group({
       nickName: ['', Validators.required],

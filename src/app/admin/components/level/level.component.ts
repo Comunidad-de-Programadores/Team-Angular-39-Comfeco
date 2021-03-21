@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { user } from '@app/core/models/user.model';
+import { User } from '@app/core/models/user.model';
 
 @Component({
   selector: 'app-level',
@@ -7,7 +7,7 @@ import { user } from '@app/core/models/user.model';
   styleUrls: ['./level.component.css']
 })
 export class LevelComponent implements OnInit, OnChanges {
-@Input() users:user[];
+@Input() users:User[];
 totalLevel:number=0;
   constructor() {
 

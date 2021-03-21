@@ -1,4 +1,4 @@
-import { User } from '@shared/models/user.interface';
+import { InsigniasUser, User } from './../models/user.model';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
@@ -9,25 +9,35 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { RoleValidator } from '@auth/helpers/roleValidator';
+import { Insignias } from '../models/insignias.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
+  insignias: Insignias[];
+  insignias$: Observable<Insignias[]>;
+  user:User;
 
 
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     super();
+
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
+          this.user=user;
+
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
         return of(null);
       })
     );
+
+
   }
 
-  async loginGoogle(): Promise<User> {
+  
+async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithPopup(
         new firebase.auth.GoogleAuthProvider()
@@ -88,6 +98,7 @@ export class AuthService extends RoleValidator {
     }
   }
 
+
   public updateUserData(user: User, dataRegister = null) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
@@ -100,7 +111,7 @@ export class AuthService extends RoleValidator {
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      role: 'ADMIN',
+      role: 'SUSCRIPTOR',
     };
 
     data = (dataRegister != null) ? Object.assign(data, dataRegister) : data;

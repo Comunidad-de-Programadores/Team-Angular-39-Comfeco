@@ -1,0 +1,23 @@
+<div class="cards" >
+
+<div class="card" *ngFor="let item of insignias">
+
+<img *ngIf="item.isActive" src="../../../../assets/images/insignias/cards/{{item.image}}Active.png"/>
+<img *ngIf="!item.isActive" src="../../../../assets/images/insignias/cards/{{item.image}}.png" />
+
+
+<p class="tipo title-3 ">{{item.tipo}}</p>
+<p class="desc">{{item.descripcion}}</p>
+<p class="question">¿Como Se Gana?</p>
+
+<p class="como">{{item.como}}</p>
+
+
+
+
+
+</div>
+
+
+
+</div>

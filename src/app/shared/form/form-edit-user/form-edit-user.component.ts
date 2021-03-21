@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/core/services/auth.service';
+import { SkillService } from '@app/core/services/skill.service';
+import { User } from './../../../core/models/user.model';
 
 import Swal from 'sweetalert2';
 @Component({
@@ -12,20 +14,25 @@ import Swal from 'sweetalert2';
 })
 export class FormEditUserComponent implements OnInit {
   formEditUser: FormGroup;
-  user;
-  constructor(private authSvc: AuthService, private router: Router, private fb: FormBuilder) {
+  user:any;
+  perfilStateValue
+  constructor(private authSvc: AuthService,
+ private router: Router, 
+private fb: FormBuilder,
+private ss:SkillService) {
+
 
     this.authSvc.user$.subscribe(resp => {
-      this.user = resp;
-      console.log(resp);
-      this.mostrarDatosUser();
+     
+     this.user=resp;
+    this.mostrarDatosUser();
     })
 
     this.formEditUser = this.fb.group({
       nickName: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      password: [''],
+      confirmPassword: [''],
       genero: ['', Validators.required],
       FchNacimiento: ['', Validators.required],
       pais: ['', Validators.required],
@@ -55,6 +62,42 @@ export class FormEditUserComponent implements OnInit {
 
   }
 
+  /**
+     * veo si tiene o merece la Insignia de Social
+     */
+  checkSocialInsignia(user:any){
+  if (!this.ss.insignias[0].isActive){
+    this.perfilStateValue = 0;
+    let cadena = JSON.stringify(user);
+    const items = cadena.split(',');
+    items.forEach(ele => {
+      this.perfilStateValue++;
+
+    })
+    //si tiene todo cargado activo la insignia
+    if (this.perfilStateValue >= 22) {
+
+      this.ss.updateInsignia('sociable');
+      Swal.fire({
+        title: 'Insignia Sociable',
+        text: 'Has Obtenido una Nueva Insignia! ',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+      return true;
+    }
+    else {
+      return false;
+    }
+
+
+
+}
+else{
+return true;
+}
+
+}
   actualizar() {
     if (this.formEditUser.value.password != this.formEditUser.value.confirmPassword) {
       Swal.fire({
@@ -65,14 +108,22 @@ export class FormEditUserComponent implements OnInit {
       })
     } else {
       this.authSvc.updateUserData(this.user,this.formEditUser.value).then((user) => {
+      
+       let userComplete={...this.user, ...this.formEditUser.value};
 
-        
+      
+    
           Swal.fire({
             title: 'Perfil',
             text: 'Se ha Actualizado su Información!',
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+
+          setTimeout(() => {
+            this.checkSocialInsignia(userComplete);
+          }, 2000);
+                
           this.router.navigate(['/perfil']);
        
 
